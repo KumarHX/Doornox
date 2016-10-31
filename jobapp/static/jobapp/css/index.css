@@ -1,0 +1,18 @@
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+#topinfo {
+    background: url(../img/Handshake2.jpg) no-repeat center top scroll;
+    min-height: 500px !important;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 80% 20%;
+    /*top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 500px;
+    max-width: none;
+    padding-bottom: 25%;*/
+}
