@@ -1,0 +1,33 @@
+{% load staticfiles %}
+<script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
+<meta name="google-signin-client_id" content="1082746344476-518nlgft0m0sdip3u3ue38vukvl680di.apps.googleusercontent.com">
+{% include "jobapp/fbloginscript.html" %}
+<nav class="navbar navbar-inverse navbar-fixed-top">
+	<div class="container">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+				<span class="sr-only"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="/" style="margin-bottom:10px; margin-top:-10px;"><img id="Dnlogo" width="40px;" name="Dnlogo" src="{% static 'jobapp/img/DoorNox-LinkedIn-4.png' %}" /></a>
+			<a class="navbar-brand" href="/" style="margin-left:-30px;"><big>Doornox</big><small> <i>beta </i> </small></a>
+		</div>
+		<div id="navbar" class="navbar-collapse collapse">
+			  <ul class="nav navbar-nav nav pull-right">
+				<div style="display:none;" id="status"></div>
+					{% if user.lnkd_img_url != '' %}
+						<li><a href="/profile/"><img src="{{ user.lnkd_img_url }}" width="100%" style="max-width:30px"/></a></li>
+					{% elif user.fbid and user.fbid > 0 %}
+						<li><a href="/profile/"><img src="http://graph.facebook.com/{{ user.fbid }}/picture?type=large" style="max-width:30px"/>&nbsp {{ user.fname }}</a></li>
+					{% elif user.poster.goog_img_url != '' %}
+						<li><a href="/profile/"><img src="{{ user.goog_img_url }}" style="max-width:30px"/>&nbsp {{ user.fname }}</a></li>
+					{% endif %}
+					<li><a href="/searchjobs/"><i class="glyphicon glyphicon-search" style="font-size: 20px;"></i></a></li><!-- SEARCH -->
+					<li><a href="/inbox/"><i class="glyphicon glyphicon-envelope" style="font-size: 20px;"></i></a></li> <!--INBOX -->
+					<li><a href="#" onclick="logout()"><i class="glyphicon glyphicon-log-out" style="font-size: 20px;"></i></a></li> <!--LOGOUT -->
+			  </ul>
+		</div>
+	</div> <!-- container ends -->
+</nav>
